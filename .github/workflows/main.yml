@@ -11,10 +11,6 @@ jobs:
     steps:
       - name: Checkout tools repo
         uses: actions/checkout@v4
-        with:
-          repository: AccountService
-          path: AccountService
-
       - name: setup jdk 21
         uses: actions/setup-java@v3
         with:
