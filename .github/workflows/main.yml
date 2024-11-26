@@ -38,7 +38,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          dockerfile: Dockerfile-account
+          dockerfile: Dockerfile
           push: false
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/bank-account-api:v1.0.0
 
@@ -52,6 +52,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          dockerfile:  Dockerfile-account
+          dockerfile:  Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/bank-account-api:v1.0.0
