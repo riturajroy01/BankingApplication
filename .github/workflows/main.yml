@@ -19,7 +19,7 @@ jobs:
         run: mvn clean install
 
       - name: Build & push bank-account-service Docker image
-        uses: mr-smithers-excellent/docker-build-push@v5
+        uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: riturajdocker/bank-account-service
           tags: latest
@@ -29,7 +29,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Build & push bank-transaction-service Docker image
-        uses: mr-smithers-excellent/docker-build-push@v5
+        uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: riturajdocker/bank-transaction-service
           tags: latest
