@@ -1,0 +1,10 @@
+services:
+
+  account-service:
+    image: riturajdocker/bank-account-service:latest
+    ports:
+      - 9090:8080
+  transaction-service:
+    image: riturajdocker/bank-transaction-service:latest
+    ports:
+      - 9091:8080
