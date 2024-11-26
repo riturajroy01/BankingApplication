@@ -12,7 +12,7 @@ jobs:
       - name: Checkout tools repo
         uses: actions/checkout@v4
         with:
-          repository: AccountService
+          repository: BankingApplication/AccountService
           path: AccountService
 
       - name: setup jdk 21
