@@ -8,10 +8,10 @@ VOLUME /tmp
 EXPOSE 8080
 
 # The application's jar file
-ARG JAR_FILE=AccountService/target/AccountService-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=AccountService/target/bank-account-service.jar
 
 # Add the application's jar to the container
-ADD ${JAR_FILE} accountService.jar
+ADD ${JAR_FILE} bank-account-service.jar
 
 # Run the jar file
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/accountService.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/bank-account-service.jar"]

@@ -76,6 +76,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>bank-account-service</finalName>
     </build>
 
 </project>

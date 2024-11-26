@@ -18,6 +18,16 @@ jobs:
       - name: maven build and Test
         run: mvn clean install
 
+      - name: Build & push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: riturajdocker/bank-account-service
+          tags: latest
+          registry: docker.io
+          dockerfile: Dockerfile-account
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
 #      - name: SonarQube Scan
 #        uses: kitabisa/sonarqube-action@v1.2.0
 #        env:
@@ -34,24 +44,24 @@ jobs:
 #          mvn clean
 #          mvn -B package --file pom.xml
 
-      - name: build the docker image
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          dockerfile: Dockerfile
-          push: false
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/bank-account-api:v1.0.0
-
-      - name: login to docker hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-
-      - name: push the docker image to docker hub
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          dockerfile:  Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/bank-account-api:v1.0.0
+#      - name: build the docker image
+#        uses: docker/build-push-action@v4
+#        with:
+#          context: .
+#          dockerfile: Dockerfile
+#          push: false
+#          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/bank-account-api:v1.0.0
+#
+#      - name: login to docker hub
+#        uses: docker/login-action@v1
+#        with:
+#          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+#          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+#
+#      - name: push the docker image to docker hub
+#        uses: docker/build-push-action@v4
+#        with:
+#          context: .
+#          dockerfile:  Dockerfile
+#          push: true
+#          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/bank-account-api:v1.0.0
