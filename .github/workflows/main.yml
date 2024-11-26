@@ -1,18 +1,17 @@
 name: build and deploy spring-api
 on:
-  push:
-    branches:
-      - start-project
+  workflow_dispatch:
+    
 
 jobs:
   build-deploy:
     name: build and deploy spring-api
-    runs-on: ubuntu-20.04
+    runs-on: [self-hosted, linux]
     steps:
       - name: Checkout tools repo
         uses: actions/checkout@v4
         with:
-          repository: BankingApplication/AccountService
+          app-directory: 'AccountService'
           path: AccountService
 
       - name: setup jdk 21
