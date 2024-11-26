@@ -1,13 +1,13 @@
-name: build and deploy spring-api
+name: build and create docker image for Bank Account Application
 on:
   workflow_dispatch:
 
 jobs:
   build-deploy:
-    name: build and deploy spring-api
+    name: build and deploy Bank Account Application
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout tools repo
+      - name: Checkout Individual repos
         uses: actions/checkout@v4
       - name: setup jdk 21
         uses: actions/setup-java@v3
@@ -15,16 +15,26 @@ jobs:
           distribution: 'corretto'
           java-version: 21
 
-      - name: maven build and Test
+      - name: Maven build and Test
         run: mvn clean install
 
-      - name: Build & push Docker image
+      - name: Build & push bank-account-service Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: riturajdocker/bank-account-service
           tags: latest
           registry: docker.io
           dockerfile: Dockerfile-account
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Build & push bank-transaction-service Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: riturajdocker/bank-transaction-service
+          tags: latest
+          registry: docker.io
+          dockerfile: Dockerfile-transaction
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
