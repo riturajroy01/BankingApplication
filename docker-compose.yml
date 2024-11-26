@@ -1,0 +1,22 @@
+services:
+
+  account-service:
+    build:
+      context: ./AccountService
+      dockerfile: Dockerfile-account
+    ports:
+      - 9090:8080
+#    environment:
+#      - IBM_MQ_CONN_NAME=mqserver(1414)
+#    depends_on:
+#      - "mqserver"
+  transaction-service:
+    build:
+      context: ./TransactionService
+      dockerfile: Dockerfile-transaction
+    ports:
+      - 9091:8080
+#    environment:
+#      - IBM_MQ_CONN_NAME=mqserver(1414)
+#    depends_on:
+#      - "mqserver"
