@@ -6,7 +6,7 @@ on:
 jobs:
   build-deploy:
     name: build and deploy spring-api
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout tools repo
         uses: actions/checkout@v4
