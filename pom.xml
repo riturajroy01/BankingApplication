@@ -12,6 +12,7 @@
 
     <module>AccountService</module>
     <module>TransactionService</module>
+    <module>BankUI</module>
 </modules>
 
 </project>

@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.banking</groupId>
-    <artifactId>AccountService</artifactId>
+    <artifactId>BankUI</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>AccountService</name>
-    <description>AccountService</description>
+    <name>BankUI</name>
+    <description>BankUI</description>
     <packaging>jar</packaging>
     <url/>
     <licenses>
@@ -33,21 +33,13 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -75,7 +67,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>bank-account-service</finalName>
     </build>
 
 </project>
